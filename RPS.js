@@ -20,10 +20,10 @@ function playRound(player,computer) {
         (computer == 'rock' && player == 'scissors')||
         (computer == 'scissors' && player == 'paper')||
         (computer == 'paper' && player == 'rock')) {
-        alert('Computer Win')
+        alert(`Computer chose ${computer} and You chose ${player} \nComputer Win`);
         return 'Computer Win';
     } else {
-        alert('player win') 
+        alert(`You chose ${player} and Computer chose ${computer} \nYou Win`) 
         return 'player win';
     }
 }
