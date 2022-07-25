@@ -11,5 +11,20 @@ function computerSelection() {
 
 }
 
-alert(playerSelection())
-alert(computerSelection())
+function playRound(player,computer) {
+    player = playerSelection();
+    computer = computerSelection();
+    if (computer == player) {
+        alert('Round')
+    } else if (
+        (computer == 'rock' && player == 'scissors')||
+        (computer == 'scissors' && player == 'paper')||
+        (computer == 'paper' && player == 'rock')) {
+            alert('Computer Win')
+    } else {
+        alert('player win')
+    }
+}
+
+
+playRound()
