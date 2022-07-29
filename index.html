@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="conteiner">
+        <div class="content">
+            <div class="label">Rock Paper Scissors</div>
+            <div class="scoreSection">
+                <div>
+                    <div>Player</div>
+                    <div class="score" id="playerScore">0</div>
+                </div>
+                <div>
+                    <div>Computer</div>
+                    <div class="score" id="computerScore">0</div>
+                </div>
+            </div>            
+            <div class="playerSelection">
+                <div>Make your choice</div>
+                <div class="Selection">
+                    <button class="rps" id="btn" value="rock">
+                        rock
+                    </button>
+                    <div class="rps" id="btn">
+                        paper
+                    </div>
+                    <div class="rps" id="btn">
+                        scissirs
+                    </div class="rps" id="btn">    
+                </div>
+            </div>
+            <div class="resultSection">
+                <div class="result">Round: ${(i+1)}\nPlayer score: ${playersScore[0]}\n
+                    Computer score: ${playersScore[1]}</div>
+            </div>
+        </div>
+    </div>
     <script src="/RPS.js"></script>
-    
 </body>
 </html>
