@@ -8,3 +8,79 @@ body {
     background-color: #202A44; 
 }
 
+.conteiner {
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    
+}
+
+.label {
+    font-size: 48px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.scoreSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    font-size: 32px;
+    margin: 25px 0 25px 0;
+    text-align: center;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    width: 120px;
+    height: 120px;
+    border: 3px solid whitesmoke;
+    border-radius: 10%;
+}
+
+.resultSection {
+    margin: 25px 0 25px 0;
+    display: flex;
+    font-size: 32px;
+    height: 130px;
+}
+
+.playerSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    margin: 25px 0 25px 0;
+    
+}
+
+.Selection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+    margin: 25px 0 25px 0;
+}
+
+.rps {
+    display: flex;
+    background-color: #202A44;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    width: 120px;
+    height: 120px;
+    border: 3px solid whitesmoke;
+    border-radius: 10%;
+}
