@@ -1,9 +1,12 @@
 let playersScore = [0,0];
-
+let Selection = document.querySelector('#btn')
 
 
 function playerSelection() {
-   return prompt("Choose rock paper or scissors").toLowerCase();
+    Selection.addEventListener('click', () => {
+        return selection.value;        
+    });
+    game()
 }
 
 function computerSelection() {
@@ -60,4 +63,4 @@ function game() {
 }
 
 
-game()
+// game()
