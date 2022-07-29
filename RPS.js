@@ -1,43 +1,30 @@
 let playersScore = [0,0];
-let Selection = document.querySelector('#btn')
+const playerSelection = document.querySelectorAll('.rps');
 
-
-function playerSelection() {
-    Selection.addEventListener('click', () => {
-        return selection.value;        
-    });
-    game()
-}
+playerSelection.forEach(function(button){
+    button.addEventListener('click',event => {
+        game(event.target.value);
+    })
+});
 
 function computerSelection() {
     const RPS = ["rock","paper","scissors"];
     return RPS[Math.floor(Math.random()*RPS.length)]
-
 }
 
-function playRound(player,computer) {
-    if (computer == player) {
+function roundResult(player,computer) {
+    if (computer === player) {
         alert('Round')        
         return 'Round';
-    } else if (
-        (computer == 'rock' && player == 'scissors')||
-        (computer == 'scissors' && player == 'paper')||
-        (computer == 'paper' && player == 'rock')) {
+    } 
+    if ((computer === 'rock' && player === 'scissors') ||
+        (computer === 'scissors' && player === 'paper') ||
+        (computer === 'paper' && player === 'rock')) {
         alert(`Computer chose ${computer} and You chose ${player} \nComputer Win`);
-        return 'Computer Win';
+        return playersScore[1] +=1;
     } else {
         alert(`You chose ${player} and Computer chose ${computer} \nYou Win`) 
-        return 'player win';
-    }
-}
-
-function score(playRound) {   
-    if (playRound == 'Computer Win') {
-       return playersScore[1] = ++playersScore[1];
-    } else if (playRound == 'player win') {
-       return playersScore[0] = ++playersScore[0];
-    } else {
-        console.log('blet');
+        return playersScore[0] +=1;
     }
 }
 
@@ -51,15 +38,9 @@ function gameResult() {
     }
 } 
 
-function game() {
-    let i = 0
-    while ((i < 5)&&((playersScore[0]||playersScore[1])<3)) {
-        score(playRound(playerSelection(),computerSelection()));
-        alert(`Round: ${(i+1)}\nPlayer score: ${playersScore[0]}\nComputer score: ${playersScore[1]}`);
-        i++;
-    }
-    gameResult();
-    playersScore = [0,0];
+function game(playerSelection) {    
+    roundResult(playerSelection,computerSelection());
+    alert(playersScore)    
 }
 
 
