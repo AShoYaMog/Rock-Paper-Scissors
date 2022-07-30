@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <script src="/RPS.js" defer></script>
 </head>
 <body>
     <div class="conteiner">
@@ -24,23 +25,22 @@
             <div class="playerSelection">
                 <div>Make your choice</div>
                 <div class="Selection">
-                    <button class="rps" id="rock" value="rock">
+                    <button class="rps" value="rock">
                         rock
                     </button>
-                    <button class="rps" id="paper" value="paper">
+                    <button class="rps" value="paper">
                         paper
                     </button>
-                    <button class="rps" id="scissirs" value="scissirs">
+                    <button class="rps" value="scissors">
                         scissirs
                     </button>    
                 </div>
             </div>
             <div class="resultSection">
-                <div class="result">Round: ${(i+1)}\nPlayer score: ${playersScore[0]}\n
-                    Computer score: ${playersScore[1]}</div>
+                <div class="result">Results will be here</div>
             </div>
         </div>
     </div>
-    <script src="/RPS.js"></script>
+    
 </body>
 </html>

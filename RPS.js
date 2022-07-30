@@ -1,4 +1,10 @@
-let playersScore = [0,0];
+let round = 0;
+let playerScoreDisplay = document.querySelector('#playerScore');
+let computerScoreDisplay = document.querySelector('#computerScore');
+let playerScore = 0;
+let computerScore = 0;
+let log = [];
+const result = document.querySelector('.result');
 const playerSelection = document.querySelectorAll('.rps');
 
 playerSelection.forEach(function(button){
@@ -14,18 +20,21 @@ function computerSelection() {
 
 function roundResult(player,computer) {
     if (computer === player) {
-        alert('Round')        
-        return 'Round';
-    } 
-    if ((computer === 'rock' && player === 'scissors') ||
+        result.textContent =`Round: ${round}\nBoth chose ${player.toUpperCase()}\nRound!`;       
+        return 'Round!';
+    } else if ((computer === 'rock' && player === 'scissors') ||
         (computer === 'scissors' && player === 'paper') ||
         (computer === 'paper' && player === 'rock')) {
-        alert(`Computer chose ${computer} and You chose ${player} \nComputer Win`);
-        return playersScore[1] +=1;
+        result.textContent = `Round: ${round}\n${computer.toUpperCase()} beats ${player.toUpperCase()}\nComputer Win!`;
+        return computerScore +=1;
     } else {
-        alert(`You chose ${player} and Computer chose ${computer} \nYou Win`) 
-        return playersScore[0] +=1;
+        result.textContent = `Round: ${round}\n${player.toUpperCase()} beats ${computer.toUpperCase()}\nYou Win!`;
+        return playerScore += 1;
     }
+}
+function dravResult() {
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 }
 
 function gameResult() {
@@ -40,8 +49,14 @@ function gameResult() {
 
 function game(playerSelection) {    
     roundResult(playerSelection,computerSelection());
-    alert(playersScore)    
+    round += 1;
+    dravResult()
 }
 
 
 // game()
+
+
+// Object.keys(score).forEach(key => {
+//     score[key] = 0
+// });

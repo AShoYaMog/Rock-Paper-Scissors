@@ -84,3 +84,11 @@ body {
     border: 3px solid whitesmoke;
     border-radius: 10%;
 }
+
+.rps:hover {
+    background-color: #2F1898;
+}
+
+.resultSection {
+    white-space: pre-line;    
+}
