@@ -52,7 +52,18 @@ body {
     margin: 25px 0 25px 0;
     display: flex;
     font-size: 32px;
-    height: 130px;
+    
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+}
+
+.result p {
+    margin-bottom: 25px;
+    border-bottom: 2px solid whitesmoke;
+    width: 450px;
 }
 
 .playerSelection {

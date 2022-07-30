@@ -1,6 +1,4 @@
 let round = 0;
-let playerScoreDisplay = document.querySelector('#playerScore');
-let computerScoreDisplay = document.querySelector('#computerScore');
 let playerScore = 0;
 let computerScore = 0;
 let log = [];
@@ -20,37 +18,59 @@ function computerSelection() {
 
 function roundResult(player,computer) {
     if (computer === player) {
-        result.textContent =`Round: ${round}\nBoth chose ${player.toUpperCase()}\nRound!`;       
-        return 'Round!';
-    } else if ((computer === 'rock' && player === 'scissors') ||
+        log.unshift(`<p>Round: ${round+1}\nBoth chose ${player.toUpperCase()}\nRound!</p>`);       
+        return 
+    }
+    if ((computer === 'rock' && player === 'scissors') ||
         (computer === 'scissors' && player === 'paper') ||
         (computer === 'paper' && player === 'rock')) {
-        result.textContent = `Round: ${round}\n${computer.toUpperCase()} beats ${player.toUpperCase()}\nComputer Win!`;
+        log.unshift(`<p>Round: ${round+1}\n${computer.toUpperCase()} beats ${player.toUpperCase()}\nComputer Win!</p>`);
         return computerScore +=1;
     } else {
-        result.textContent = `Round: ${round}\n${player.toUpperCase()} beats ${computer.toUpperCase()}\nYou Win!`;
+        log.unshift(`<p>Round: ${round+1}\n${player.toUpperCase()} beats ${computer.toUpperCase()}\nYou Win!</p>`);
         return playerScore += 1;
     }
 }
-function dravResult() {
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+
+function declareResult() {
+    document.querySelector('#playerScore').textContent = playerScore;
+    document.querySelector('#computerScore').textContent = computerScore;
+    result.innerHTML = log.toString().replace(/,/g,'');
+}
+
+function declareWiner(gameResult) {
+    if ((gameResult === 'Player win') || 
+        (gameResult === 'Computer win') ||
+        (gameResult === 'Dead heat')) {
+        let lastRound = log[0];        
+        result.innerHTML = `<p>Game result: \n${gameResult}!</p><p>${lastRound}</p>`;
+        round = 0;
+        log =[];
+        playerScore = 0;
+        computerScore = 0;
+    }
 }
 
 function gameResult() {
-    if (playersScore[0] > playersScore[1]) {
-        alert('Game result \nPlayer win');
-    } else if (playersScore[0] < playersScore[1]) {
-        alert('Game result: \nComputer win');
+    if ((playerScore > computerScore)&&(round === 5)) {
+        console.log('Game result: \nPlayer win');
+        return 'Player win'
+    } else if ((playerScore < computerScore)&&(round === 5)) {
+        console.log('Game result: \nComputer win');
+        return 'Computer win'
+    } else if ((playerScore === computerScore)&&(round === 5)) {
+        console.log('Game result: \nDead heat')
+        return 'Dead heat'
     } else {
-        alert('Game result: \nDead heat')
+        return
     }
 } 
 
 function game(playerSelection) {    
     roundResult(playerSelection,computerSelection());
     round += 1;
-    dravResult()
+    declareResult();
+    declareWiner(gameResult());
 }
 
 
